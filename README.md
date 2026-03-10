@@ -28,7 +28,7 @@ The project showcases **DevOps skills** including Docker, Kubernetes, local imag
 
 ---
 
-## Architecture
+##Architecture
                ┌─────────────┐
                │  Frontend   │
                │   React     │
@@ -108,6 +108,7 @@ During development and deployment, several issues were encountered and resolved:
 
 6. Using Minikube’s Docker environment
     Essential to ensure Kubernetes uses local images instead of trying to pull from Docker Hub.
+
 
 
 
