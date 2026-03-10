@@ -83,6 +83,20 @@ The project showcases **DevOps skills** including Docker, Kubernetes, local imag
 ### 6. Access Frontend
     minikube service frontend
 
+### The workflow was:
+
+1. Application Code: Created separate folders for frontend and backend services with their respective application code.
+
+2. Dockerization: Wrote Dockerfiles for each service to containerize the applications.
+
+3. Minikube Setup: Used Minikube to run a local Kubernetes cluster.
+
+4. Build & Deploy: Built Docker images locally (inside Minikube’s Docker environment), then deployed the services as Kubernetes Pods using Deployments.
+
+5. Service Exposure: Exposed each service using Kubernetes Services, and configured an Ingress to route traffic to the frontend and backend.
+
+6. Outcome: All services ran successfully as pods, the frontend became accessible via Minikube URL, and the backend services communicated internally with Redis.
+
     
 # Challenges / Problems Faced
 
@@ -108,6 +122,7 @@ During development and deployment, several issues were encountered and resolved:
 
 6. Using Minikube’s Docker environment
     Essential to ensure Kubernetes uses local images instead of trying to pull from Docker Hub.
+
 
 
 
