@@ -36,7 +36,7 @@ The project showcases **DevOps skills** including Docker, Kubernetes, local imag
 
 
 1. Start Minikube
-    minikube start
+    ```minikube start```
    
 3. Use Minikube’s Docker daemon
     minikube -p minikube docker-env --shell powershell | Invoke-Expression
@@ -62,7 +62,7 @@ The project showcases **DevOps skills** including Docker, Kubernetes, local imag
     minikube service frontend
 
     
-##Challenges / Problems Faced
+#Challenges / Problems Faced
 
 During development and deployment, several issues were encountered and resolved:
 
@@ -86,4 +86,5 @@ During development and deployment, several issues were encountered and resolved:
 
 6. Using Minikube’s Docker environment
     Essential to ensure Kubernetes uses local images instead of trying to pull from Docker Hub.
+
 
