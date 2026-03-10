@@ -2,7 +2,7 @@
 
 ## Project Description
 
-For this project, I built a **realistic microservices application** from scratch and deployed it on **Kubernetes** using **Minikube**. I created separate folders for each service — **frontend** and **backend** — and wrote the application code myself.  
+For this project, I built a **realistic microservices application** from scratch and deployed it on **Kubernetes** using **Minikube**. I created separate folders for each service — **frontend** and **backend** .
 
 The stack includes:
 
@@ -94,6 +94,7 @@ During development and deployment, several issues were encountered and resolved:
 
 6. Using Minikube’s Docker environment
     Essential to ensure Kubernetes uses local images instead of trying to pull from Docker Hub.
+
 
 
 
