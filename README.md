@@ -25,7 +25,6 @@ The project showcases **DevOps skills** including Docker, Kubernetes, local imag
 | Orchestration   | Kubernetes |
 | Local Cluster   | Minikube |
 | Deployment      | Kubernetes Deployments, Services, Ingress |
-| CI/CD (optional)| GitHub Actions |
 
 ---
 
@@ -88,6 +87,7 @@ During development and deployment, several issues were encountered and resolved:
 
 6. Using Minikube’s Docker environment
     Essential to ensure Kubernetes uses local images instead of trying to pull from Docker Hub.
+
 
 
 
