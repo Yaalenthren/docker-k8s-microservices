@@ -35,20 +35,20 @@ The project showcases **DevOps skills** including Docker, Kubernetes, local imag
 ## Running Locally on Minikube
 
 
-###1. Start Minikube
+### 1. Start Minikube
     ```
     minikube start
     ```
    
-3. Use Minikube’s Docker daemon
+### 2. Use Minikube’s Docker daemon
     minikube -p minikube docker-env --shell powershell | Invoke-Expression
    
-5. Build Docker images
+### 3. Build Docker images
     docker build -t frontend:latest ./frontend
     docker build -t user-service:latest ./user-service
     docker build -t product-service:latest ./product-service
    
-7. Apply Kubernetes YAMLs
+### 4. Apply Kubernetes YAMLs
   Make sure all deployments have imagePullPolicy: Never.
     kubectl apply -f k8s/redis-deployment.yaml
     kubectl apply -f k8s/user-deployment.yaml
@@ -56,11 +56,11 @@ The project showcases **DevOps skills** including Docker, Kubernetes, local imag
     kubectl apply -f k8s/frontend-deployment.yaml
     kubectl apply -f k8s/ingress.yaml
    
-9. Verify pods are running
+### 5. Verify pods are running
     kubectl get pods
     All pods should show 1/1 Running.
    
-11. Access Frontend
+### 6. Access Frontend
     minikube service frontend
 
     
