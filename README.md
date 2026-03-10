@@ -34,62 +34,56 @@ The project showcases **DevOps skills** including Docker, Kubernetes, local imag
 
 ## Running Locally on Minikube
 
-### 1. Start Minikube
 
-```powershell
-minikube start
-2. Use Minikube’s Docker daemon
-minikube -p minikube docker-env --shell powershell | Invoke-Expression
-3. Build Docker images
-docker build -t frontend:latest ./frontend
-docker build -t user-service:latest ./user-service
-docker build -t product-service:latest ./product-service
-4. Apply Kubernetes YAMLs
+1. Start Minikube
+    minikube start
+   
+3. Use Minikube’s Docker daemon
+    minikube -p minikube docker-env --shell powershell | Invoke-Expression
+   
+5. Build Docker images
+    docker build -t frontend:latest ./frontend
+    docker build -t user-service:latest ./user-service
+    docker build -t product-service:latest ./product-service
+   
+7. Apply Kubernetes YAMLs
+  Make sure all deployments have imagePullPolicy: Never.
+    kubectl apply -f k8s/redis-deployment.yaml
+    kubectl apply -f k8s/user-deployment.yaml
+    kubectl apply -f k8s/product-deployment.yaml
+    kubectl apply -f k8s/frontend-deployment.yaml
+    kubectl apply -f k8s/ingress.yaml
+   
+9. Verify pods are running
+    kubectl get pods
+    All pods should show 1/1 Running.
+   
+11. Access Frontend
+    minikube service frontend
 
-Make sure all deployments have imagePullPolicy: Never.
-
-kubectl apply -f k8s/redis-deployment.yaml
-kubectl apply -f k8s/user-deployment.yaml
-kubectl apply -f k8s/product-deployment.yaml
-kubectl apply -f k8s/frontend-deployment.yaml
-kubectl apply -f k8s/ingress.yaml
-5. Verify pods are running
-kubectl get pods
-
-All pods should show 1/1 Running.
-
-6. Access Frontend
-minikube service frontend
-Challenges / Problems Faced
+    
+##Challenges / Problems Faced
 
 During development and deployment, several issues were encountered and resolved:
 
-React build errors in Docker
+1. React build errors in Docker
+    Fixed by ensuring public and src folders are copied correctly before npm run build.
 
-Fixed by ensuring public and src folders are copied correctly before npm run build.
+2. index.html and index.js not found
+    Caused by incorrect folder structure / Dockerfile paths.
 
-index.html and index.js not found
+3. Windows vs Linux shell commands
+    eval $(minikube docker-env) doesn’t work on Windows CMD.
+    Resolved using PowerShell: minikube -p minikube docker-env --shell powershell | Invoke-Expression.
 
-Caused by incorrect folder structure / Dockerfile paths.
+4. ImagePullBackOff / ErrImagePull
+    Kubernetes couldn’t see locally built Docker images.
+    Fixed by setting imagePullPolicy: Never in deployments and building images inside Minikube Docker.
 
-Windows vs Linux shell commands
+5. Service unreachable at Minikube URL
+    Occurred when frontend was running but backend pods weren’t.
+    Fixed by rebuilding backend images inside Minikube and reapplying deployments.
 
-eval $(minikube docker-env) doesn’t work on Windows CMD.
+6. Using Minikube’s Docker environment
+    Essential to ensure Kubernetes uses local images instead of trying to pull from Docker Hub.
 
-Resolved using PowerShell: minikube -p minikube docker-env --shell powershell | Invoke-Expression.
-
-ImagePullBackOff / ErrImagePull
-
-Kubernetes couldn’t see locally built Docker images.
-
-Fixed by setting imagePullPolicy: Never in deployments and building images inside Minikube Docker.
-
-Service unreachable at Minikube URL
-
-Occurred when frontend was running but backend pods weren’t.
-
-Fixed by rebuilding backend images inside Minikube and reapplying deployments.
-
-Using Minikube’s Docker environment
-
-Essential to ensure Kubernetes uses local images instead of trying to pull from Docker Hub.
