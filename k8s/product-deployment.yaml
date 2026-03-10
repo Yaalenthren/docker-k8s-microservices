@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: product-service
-          image: product-service:latest
-          imagePullPolicy: Never
+          image: yaalenthren/frontend:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 3002
 ---

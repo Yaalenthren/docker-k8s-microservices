@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: user-service
-          image: user-service:latest
-          imagePullPolicy: Never
+          image: yaalenthren/frontend:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 3001
 ---
