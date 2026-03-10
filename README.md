@@ -1,18 +1,19 @@
-# Dockerized Kubernetes Microservices Application
+# Dockerized Kubernetes Microservices with CI/CD
 
-## Project Description
+This project demonstrates **end-to-end DevOps practices**, including a **CI/CD pipeline** that automatically builds Docker images and pushes them to **DockerHub** on every commit to the **main branch**.
 
-For this project, I built a **realistic microservices application** from scratch and deployed it on **Kubernetes** using **Minikube**. I created separate folders for each service — **frontend** and **backend** .
+I also developed a **realistic microservices application** from scratch and deployed it on **Kubernetes** using **Minikube**, organizing each service in its own dedicated folder for **frontend** and **backend**.
 
-The stack includes:
+## Architecture
 
-- **Frontend:** A React application served via Nginx  
-- **Backend Services:** Node.js applications for Users and Products  
-- **Database/Cache:** Redis for fast data access  
-- **Deployment:** Kubernetes Deployments, Services, and Ingress for orchestration and service exposure  
+The architecture includes:
 
-The project demonstrates my hands-on skills with **Docker containerization**, **Kubernetes orchestration**, local image management, and deploying a full microservices architecture using Minikube.
+- **Frontend:** React application served via **Nginx**  
+- **Backend Services:** Node.js applications for **Users** and **Products**  
+- **Database/Cache:** **Redis** for fast, in-memory data access  
+- **Deployment:** Kubernetes **Deployments**, **Services**, and **Ingress** for orchestration and service exposure  
 
+This project highlights hands-on skills in **Docker containerization**, **Kubernetes orchestration**, local image management, and deploying a full microservices architecture on a local cluster.
 ---
 
 ## Tools & Technologies Used
@@ -26,6 +27,8 @@ The project demonstrates my hands-on skills with **Docker containerization**, **
 | Orchestration   | Kubernetes |
 | Local Cluster   | Minikube |
 | Deployment      | Kubernetes Deployments, Services, Ingress |
+| CI/CD     | GitHub Actions, DockerHub |
+
 
 ---
 
@@ -69,6 +72,7 @@ The project demonstrates my hands-on skills with **Docker containerization**, **
 5. Service Exposure: Exposed each service using Kubernetes Services, and configured an Ingress to route traffic to the frontend and backend.
 6. Outcome: All services ran successfully as pods, the frontend became accessible via Minikube URL, and the backend services communicated internally with Redis.
 
+Note: With GitHub Actions CI/CD enabled, pushing any change to the main branch will automatically build and push Docker images to DockerHub, reducing manual steps.
     
 # Challenges / Problems Faced
 
@@ -95,6 +99,8 @@ During development and deployment, several issues were encountered and resolved:
 6. Using Minikube’s Docker environment
     Essential to ensure Kubernetes uses local images instead of trying to pull from Docker Hub.
 
+7. GitHub Actions YAML errors (duplicate 'on' or 'jobs' definitions) Fixed by cleaning workflow file and ensuring only one     build job exists.
+   Windows-specific shell commands Adjusted workflow to use PowerShell for Minikube Docker environment.
 
 
 
