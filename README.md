@@ -1,16 +1,17 @@
 # Dockerized Kubernetes Microservices Application
 
 ## Project Description
-This project demonstrates a **realistic microservices application** deployed on **Kubernetes** using **Minikube**, built with **Dockerized services**.  
 
-It consists of:
+For this project, I built a **realistic microservices application** from scratch and deployed it on **Kubernetes** using **Minikube**. I created separate folders for each service — **frontend** and **backend** — and wrote the application code myself.  
 
-- **Frontend**: React application served via Nginx  
-- **Backend services**: Node.js applications for Users and Products  
-- **Database/Cache**: Redis  
-- **Deployment**: Kubernetes Deployments, Services, and Ingress  
+The stack includes:
 
-The project showcases **DevOps skills** including Docker, Kubernetes, local image management, and Minikube-based deployment.
+- **Frontend:** A React application served via Nginx  
+- **Backend Services:** Node.js applications for Users and Products  
+- **Database/Cache:** Redis for fast data access  
+- **Deployment:** Kubernetes Deployments, Services, and Ingress for orchestration and service exposure  
+
+The project demonstrates my hands-on skills with **Docker containerization**, **Kubernetes orchestration**, local image management, and deploying a full microservices architecture using Minikube.
 
 ---
 
@@ -93,6 +94,7 @@ During development and deployment, several issues were encountered and resolved:
 
 6. Using Minikube’s Docker environment
     Essential to ensure Kubernetes uses local images instead of trying to pull from Docker Hub.
+
 
 
 
