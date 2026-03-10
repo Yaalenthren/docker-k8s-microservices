@@ -47,14 +47,14 @@ The project showcases **DevOps skills** including Docker, Kubernetes, local imag
     docker build -t frontend:latest ./frontend
     docker build -t user-service:latest ./user-service
     docker build -t product-service:latest ./product-service
-   
+
 ### 4. Apply Kubernetes YAMLs
-  Make sure all deployments have imagePullPolicy: Never.
     kubectl apply -f k8s/redis-deployment.yaml
     kubectl apply -f k8s/user-deployment.yaml
     kubectl apply -f k8s/product-deployment.yaml
     kubectl apply -f k8s/frontend-deployment.yaml
-    kubectl apply -f k8s/ingress.yaml
+    kubectl apply -f k8s/ingress.yaml 
+   Make sure all deployments have imagePullPolicy: Never.
    
 ### 5. Verify pods are running
     kubectl get pods
@@ -64,7 +64,7 @@ The project showcases **DevOps skills** including Docker, Kubernetes, local imag
     minikube service frontend
 
     
-#Challenges / Problems Faced
+# Challenges / Problems Faced
 
 During development and deployment, several issues were encountered and resolved:
 
@@ -88,6 +88,7 @@ During development and deployment, several issues were encountered and resolved:
 
 6. Using Minikube’s Docker environment
     Essential to ensure Kubernetes uses local images instead of trying to pull from Docker Hub.
+
 
 
 
