@@ -29,8 +29,29 @@ The project showcases **DevOps skills** including Docker, Kubernetes, local imag
 ---
 
 ## Architecture
-
-
+               ┌─────────────┐
+               │  Frontend   │
+               │   React     │
+               └─────┬──────┘
+                     │
+                     ▼
+      ┌──────────────┴──────────────┐
+      │        Ingress / Service     │
+      │  (Routes traffic to backend)│
+      └──────────────┬──────────────┘
+                     │
+        ┌────────────┴────────────┐
+        │                         │
+  ┌─────────────┐          ┌──────────────┐
+  │ User-Service│          │ Product-Service│
+  │  Node.js    │          │   Node.js      │
+  └─────┬───────┘          └─────┬────────┘
+        │                        │
+        ▼                        ▼
+       ┌──────────────────────────┐
+       │          Redis            │
+       │  (Cache / In-memory DB)  │
+       └──────────────────────────┘
 ## Running Locally on Minikube
 
 
@@ -87,6 +108,7 @@ During development and deployment, several issues were encountered and resolved:
 
 6. Using Minikube’s Docker environment
     Essential to ensure Kubernetes uses local images instead of trying to pull from Docker Hub.
+
 
 
 
