@@ -103,6 +103,29 @@ During development and deployment, several issues were encountered and resolved:
    Windows-specific shell commands Adjusted workflow to use PowerShell for Minikube Docker environment.
 
 
+How to Verify the Application
+
+Frontend:
+
+minikube service frontend
+
+Opens the frontend in your browser. Verify the UI loads correctly.
+
+Backend:
+
+Option 1: Use the frontend UI to interact with the backend services.
+
+Option 2: (Advanced) Use Postman or curl to test APIs:
+
+curl http://<minikube-ip>:<node-port>/api/users
+curl http://<minikube-ip>:<node-port>/api/products
+
+💡 Tip: If services aren’t exposed via NodePort, you can port-forward:
+
+kubectl port-forward svc/user-service 5000:5000
+kubectl port-forward svc/product-service 5001:5001
+
+Then access on http://localhost:5000 and http://localhost:5001.
 
 
 
